@@ -4,7 +4,8 @@
 Compressor::Compressor() :
 		Subsystem("Compressor")
 {
-
+	compressor = new Compressor(0);
+	compressor->SetClosedLoopControl(true);
 }
 
 void Compressor::InitDefaultCommand()
