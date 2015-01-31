@@ -1,13 +1,13 @@
-#include <Subsystems/Pneumatics.h>
+#include <Subsystems/Compressor.h>
 #include "../RobotMap.h"
 
-Pneumatics::Pneumatics() :
-		Subsystem("Pneumatics")
+Compressor::Compressor() :
+		Subsystem("Compressor")
 {
 
 }
 
-void Pneumatics::InitDefaultCommand()
+void Compressor::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
