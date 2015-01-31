@@ -1,7 +1,7 @@
 #ifndef COMMAND_BASE_H
 #define COMMAND_BASE_H
 
-#include <Subsystems/SubsystemTemplate.h>
+#include <Subsystems/Pneumatics.h>
 #include <string>
 #include "Commands/Command.h"
 #include "OI.h"
@@ -19,7 +19,7 @@ public:
 	CommandBase();
 	static void init();
 	// Create a single static instance of all of your subsystems
-	static ExampleSubsystem *examplesubsystem;
+	static Pneumatics *pneumatics;
 	static OI *oi;
 };
 

@@ -3,7 +3,7 @@
 #include "Commands/Scheduler.h"
 
 // Initialize a single static instance of all of your subsystems to NULL
-ExampleSubsystem* CommandBase::examplesubsystem = NULL;
+Pneumatics* CommandBase::pneumatics = NULL;
 OI* CommandBase::oi = NULL;
 
 CommandBase::CommandBase(char const *name) :
@@ -21,7 +21,7 @@ void CommandBase::init()
 {
 	// Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	examplesubsystem = new ExampleSubsystem();
-	//Robert's comment. yay.
+	//examplesubsystem = new ExampleSubsystem();
+	pneumatics = new Pneumatics();
 	oi = new OI();
 }
