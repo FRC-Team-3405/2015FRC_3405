@@ -13,6 +13,10 @@ private:
 public:
 	Pneumatics();
 	void InitDefaultCommand();
+	void StartCompressor();
+	void StopCompressor();
+	void SetCompressorClosedLoopControl(bool on);
+
 };
 
 #endif

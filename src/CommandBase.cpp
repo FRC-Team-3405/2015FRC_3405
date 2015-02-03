@@ -4,6 +4,7 @@
 
 // Initialize a single static instance of all of your subsystems to NULL
 Pneumatics* CommandBase::pneumatics = NULL;
+
 OI* CommandBase::oi = NULL;
 
 CommandBase::CommandBase(char const *name) :

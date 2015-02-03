@@ -17,3 +17,17 @@ void Pneumatics::InitDefaultCommand()
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+void Pneumatics::StartCompressor()
+{
+	compressor->Start();
+}
+
+void Pneumatics::StopCompressor()
+{
+	compressor->Stop();
+}
+
+void Pneumatics::SetCompressorClosedLoopControl(bool on)
+{
+	compressor->SetClosedLoopControl(on);
+}

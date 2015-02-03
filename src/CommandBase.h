@@ -1,11 +1,17 @@
 #ifndef COMMAND_BASE_H
 #define COMMAND_BASE_H
 
-#include <Subsystems/Pneumatics.h>
+#include "Subsystems/Pneumatics.h"
+#include "Subsystems/Chassis.h"
+#include "Subsystems/Elevator.h"
+#include "Subsystems/Arms.h"
+
 #include <string>
 #include "Commands/Command.h"
 #include "OI.h"
 #include "WPILib.h"
+
+class OI;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -20,7 +26,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static Pneumatics *pneumatics;
-	static OI *oi;
+	static OI* oi;
 };
 
 #endif
