@@ -5,6 +5,8 @@ Chassis* Robot::chassis = NULL;
 Arms* Robot::arms = NULL;
 Elevator* Robot::elevator = NULL;
 
+OI* Robot::oi = NULL;
+
 void Robot::RobotInit()
 {
 	CommandBase::init();
@@ -14,6 +16,7 @@ void Robot::RobotInit()
 	elevator = new Elevator();
 	pneumatics = new Pneumatics();
 
+	oi = new OI();
 	//autonomousCommand = new ExampleCommand();
 	lw = LiveWindow::GetInstance();
 }

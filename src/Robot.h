@@ -8,6 +8,11 @@
 
 #include <iostream>
 
+class Chassis;
+class OI;
+class Arms;
+class Elevator;
+
 class Robot : public IterativeRobot
 {
 private:
@@ -28,6 +33,8 @@ public:
 	static Chassis* chassis;
 	static Arms* arms;
 	static Elevator* elevator;
+
+	static OI* oi;
 };
 
 #endif

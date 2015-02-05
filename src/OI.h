@@ -14,6 +14,7 @@ private:
 	JoystickButton* xboxB;
 public:
 	OI();
+	Joystick* GetJoystick();
 };
 
 #endif
