@@ -22,8 +22,9 @@ void Chassis::InitDefaultCommand()
 
 void Chassis::DriveWithJoystick(Joystick* stick)
 {
-	float x = stick->GetX();
-	float y = stick->GetY();
+
+	float x = stick->GetX(GenericHID::kLeftHand);
+	float y = stick->GetX(GenericHID::kLeftHand);
 	float r = sqrt((x*x) + (y*y));
 	float direction;
 	if(abs(x) < .0001)
