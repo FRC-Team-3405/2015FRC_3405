@@ -24,22 +24,28 @@ void Chassis::InitDefaultCommand()
 void Chassis::DriveWithJoystick(Joystick* stick)
 {
 
+
 	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
-	float rotation = stick->GetX(GenericHID::kRightHand);
+	float rotation = stick->GetRawAxis(UINT32_C(4));
 
 	std::cout << "X: " << x << " Y: " << y << " R: " << rotation << "\n";
 	if(fabs(x) < JOYSTICK_THRESHOLD)
 		x = 0.0;
 	if(fabs(y) < JOYSTICK_THRESHOLD)
 		y = 0.0;
-	if(rotation < JOYSTICK_THRESHOLD)
+	if(fabs(rotation) < JOYSTICK_THRESHOLD)
 		rotation = 0.0;
 
 	float FR = y + rotation + x;
 	float BR = y + rotation - x;
 	float FL = -1.0 * (y - rotation - x);
 	float BL = -1.0 * (y - rotation + x);
+
+//	float FR = x - rotation + y;
+//	float BR = x + rotation - y;
+//	float FL = x - rotation - y;
+//	float BL = x + rotation + y;
 
 	Robot::chassis->frontRight->Set(FR);
 	Robot::chassis->frontLeft->Set(FL);
