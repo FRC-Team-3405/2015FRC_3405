@@ -17,6 +17,7 @@ void Chassis::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
+	std::cout << "Setting default command";
 	SetDefaultCommand(new DriveCommand());
 }
 

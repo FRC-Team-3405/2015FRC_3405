@@ -69,3 +69,4 @@ local.properties
 *.out
 *.app
 /Debug/
+sysProps.xml
