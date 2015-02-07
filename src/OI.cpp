@@ -12,7 +12,7 @@ OI::OI()
 	xboxB = new JoystickButton(stick, XBOX_B);
 
 	// Assign actions here
-	xboxA->WhenPressed(new DriveCommand());
+	xboxA->WhenPressed(new RunCompressor());
 
 
 }
