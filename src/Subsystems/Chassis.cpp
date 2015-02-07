@@ -25,6 +25,7 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 
 	float x = stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetX(GenericHID::kLeftHand);
+
 	float r = sqrt((x*x) + (y*y));
 	float direction;
 	if(abs(x) < .0001)
@@ -36,7 +37,6 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	}
 	else
 		direction = atan(y / x);
-
 
 	std::cout << "X: " << x << " Y: " << y << "\n";
 	drive->MecanumDrive_Polar(r,direction, 0.0f);
