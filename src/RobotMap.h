@@ -9,7 +9,7 @@
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
- const float PI = 3.14f;
+const float PI = 3.14f;
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.
 //const int LEFTMOTOR = 1;
@@ -21,6 +21,8 @@ const int TALON_BACKRIGHT = 2;
 const int TALON_BACKLEFT = 3;
 
 const float JOYSTICK_THRESHOLD = .20f;
+const float TRIGGER_THRESHOLD = .001f;
+
 const float DRIVE_POWER = .5f;
 
 // If you are using multiple modules, make sure to define both the port

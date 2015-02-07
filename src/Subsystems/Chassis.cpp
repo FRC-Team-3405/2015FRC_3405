@@ -28,7 +28,7 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 
 	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
-	float rotation = stick->GetRawAxis(UINT32_C(4));
+	float rotation = stick->GetRawAxis(UINT32_C(4)); //
 
 	//std::cout << "X: " << x << " Y: " << y << " R: " << rotation << "\n";
 
@@ -39,7 +39,7 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	if(fabs(rotation) < JOYSTICK_THRESHOLD)
 		rotation = 0.0;
 
-	if(trigger < -.001)
+	if(trigger < -TRIGGER_THRESHOLD)
 		power *= (1 + (trigger * -1));
 
 	float FR = (y + rotation + x) * power;
