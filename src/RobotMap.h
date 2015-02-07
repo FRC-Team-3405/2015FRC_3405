@@ -20,6 +20,8 @@ const int TALON_FRONTLEFT = 1;
 const int TALON_BACKRIGHT = 2;
 const int TALON_BACKLEFT = 3;
 
+const float JOYSTICK_DEADZONE = .001f;
+const float DRIVE_SCALE = .5f;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

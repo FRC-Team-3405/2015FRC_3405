@@ -26,8 +26,17 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 
 	float x = stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetX(GenericHID::kLeftHand);
+//	if(abs(x) < JOYSTICK_DEADZONE)
+//		x = 0;
+//	if(abs(y) < JOYSTICK_DEADZONE)
+//		y = 0;
+
+
 
 	float r = sqrt((x*x) + (y*y));
+	// Scale down the magnitude
+	r *= DRIVE_SCALE;
+
 	float direction;
 	if(abs(x) < .0001)
 	{
