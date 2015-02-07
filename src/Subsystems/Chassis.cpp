@@ -24,12 +24,11 @@ void Chassis::InitDefaultCommand()
 void Chassis::DriveWithJoystick(Joystick* stick)
 {
 
-	float x = stick->GetX(GenericHID::kLeftHand);
+	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
-
-	std::cout << "X: " << x << " Y: " << y << "\n";
 	float rotation = stick->GetX(GenericHID::kRightHand);
 
+	std::cout << "X: " << x << " Y: " << y << " R: " << rotation << "\n";
 	if(fabs(x) < JOYSTICK_THRESHOLD)
 		x = 0.0;
 	if(fabs(y) < JOYSTICK_THRESHOLD)
@@ -66,7 +65,7 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 //	else
 //		direction = atan(y / x);
 //
-std::cout << "X0: " << x << " Y0: " << y << "\n";
+	std::cout << "X0: " << x << " Y0: " << y << " R0: " << rotation << "\n";
 //	drive->MecanumDrive_Polar(r,direction, 0.0f);
 }
 // Put methods for controlling this subsystem
