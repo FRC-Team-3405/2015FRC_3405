@@ -1,6 +1,8 @@
 #ifndef CHASSIS_H
 #define CHASSIS_H
 
+#include <math.h>
+
 #include "Commands/Subsystem.h"
 #include "Commands/DriveCommand.h"
 #include "WPILib.h"

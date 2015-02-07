@@ -24,8 +24,21 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 {
 	float x = stick->GetX();
 	float y = stick->GetY();
+	float r = sqrt((x*x) + (y*y));
+	float direction;
+	if(abs(x) < .0001)
+	{
+		if(y < 0)
+			direction = -90.0f;
+		else
+			direction = 90.0f;
+	}
+	else
+		direction = atan(y / x);
+
+
 	std::cout << "X: " << x << " Y: " << y << "\n";
-	drive->MecanumDrive_Polar(.5f,0.0f,1.0f);
+	drive->MecanumDrive_Polar(r,direction, 0.0f);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
