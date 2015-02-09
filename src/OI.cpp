@@ -1,7 +1,5 @@
 #include "OI.h"
-
-const int XBOX_A = 1;
-const int XBOX_B = 2;
+#include "XboxMap.h"
 
 OI::OI()
 {

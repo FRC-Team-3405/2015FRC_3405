@@ -23,8 +23,10 @@ void Chassis::InitDefaultCommand()
 
 void Chassis::DriveWithJoystick(Joystick* stick)
 {
+	// Initialize the power to constant defined in RobotMap.h
 	float power = DRIVE_POWER;
-	float trigger = stick->GetRawAxis(UINT32_C(3));
+
+	float trigger = stick->GetRawAxis(AXIS_TRIGGER);
 
 	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);

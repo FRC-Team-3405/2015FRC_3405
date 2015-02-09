@@ -2,6 +2,7 @@
 #define ROBOTMAP_H
 
 #include "WPILib.h"
+#include "XboxMap.h"
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -15,6 +16,7 @@ const float PI = 3.14f;
 //const int LEFTMOTOR = 1;
 //const int RIGHTMOTOR = 2;
 
+// PWM Channels for the Talon motor controllers
 const int TALON_FRONTRIGHT = 0;
 const int TALON_FRONTLEFT = 1;
 const int TALON_BACKRIGHT = 2;
