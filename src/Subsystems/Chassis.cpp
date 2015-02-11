@@ -26,11 +26,11 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	// Initialize the power to constant defined in RobotMap.h
 	float power = DRIVE_POWER;
 
-	float trigger = stick->GetRawAxis(AXIS_TRIGGER);
+	float trigger = stick->GetRawAxis(XBOX_TRIGGERS);
 
 	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
-	float rotation = stick->GetRawAxis(UINT32_C(4)); //
+	float rotation = stick->GetRawAxis(XBOX_RIGHT_XAXIS);
 
 	//std::cout << "X: " << x << " Y: " << y << " R: " << rotation << "\n";
 
