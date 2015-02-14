@@ -16,6 +16,7 @@ public:
 	Camera();
 	void InitDefaultCommand();
 	void MoveWithPOV(Joystick* stick);
+	void MoveHome();
 };
 
 #endif

@@ -26,6 +26,7 @@ void Robot::RobotInit()
 	//Adds buttons to the dashboard to run particular commands
 	SmartDashboard::PutData("Clamp Arms", new ClampArm());
 	SmartDashboard::PutData("Open Arms", new OpenArm());
+	SmartDashboard::PutData("Move Camera Home", new CameraHomeCommand());
 }
 
 void Robot::DisabledPeriodic()
