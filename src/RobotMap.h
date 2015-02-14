@@ -22,6 +22,10 @@ const int TALON_FRONTLEFT = 1;
 const int TALON_BACKRIGHT = 2;
 const int TALON_BACKLEFT = 3;
 
+// PWM Channels for the Camera's Servos
+const int CAMERA_SERVO_TILT = 4;
+const int CAMERA_SERVO_ROTATE = 5;
+
 const float JOYSTICK_THRESHOLD = .20f;
 const float TRIGGER_THRESHOLD = .001f;
 
