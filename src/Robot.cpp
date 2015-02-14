@@ -4,6 +4,7 @@ Pneumatics* Robot::pneumatics = NULL;
 Chassis* Robot::chassis = NULL;
 Arms* Robot::arms = NULL;
 Elevator* Robot::elevator = NULL;
+Camera* Robot::camera = NULL;
 
 OI* Robot::oi = NULL;
 
@@ -15,6 +16,7 @@ void Robot::RobotInit()
 	arms = new Arms();
 	elevator = new Elevator();
 	pneumatics = new Pneumatics();
+	camera = new Camera();
 
 	oi = new OI();
 	//autonomousCommand = new ExampleCommand();

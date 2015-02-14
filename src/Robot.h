@@ -13,6 +13,7 @@ class OI;
 class Arms;
 class Elevator;
 class Pneumatics;
+class Camera;
 
 class Robot : public IterativeRobot
 {
@@ -34,6 +35,7 @@ public:
 	static Chassis* chassis;
 	static Arms* arms;
 	static Elevator* elevator;
+	static Camera* camera;
 
 	static OI* oi;
 };

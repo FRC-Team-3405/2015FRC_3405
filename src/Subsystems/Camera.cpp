@@ -12,6 +12,7 @@ void Camera::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new CameraMoveCommand());
 }
 
 // Put methods for controlling this subsystem

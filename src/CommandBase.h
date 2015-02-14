@@ -5,6 +5,7 @@
 #include "Subsystems/Chassis.h"
 #include "Subsystems/Elevator.h"
 #include "Subsystems/Arms.h"
+#include "Subsystems/Camera.h"
 
 #include <string>
 #include "Commands/Command.h"
