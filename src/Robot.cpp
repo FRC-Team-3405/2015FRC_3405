@@ -19,6 +19,11 @@ void Robot::RobotInit()
 	oi = new OI();
 	//autonomousCommand = new ExampleCommand();
 	lw = LiveWindow::GetInstance();
+	//Display currently running commands on the dashboard
+	SmartDashboard::PutData(Scheduler::GetInstance());
+	//Adds buttons to the dashboard to run particular commands
+	SmartDashboard::PutData("Clamp Arms", new ClampArm());
+	SmartDashboard::PutData("Open Arms", new OpenArm());
 }
 
 void Robot::DisabledPeriodic()

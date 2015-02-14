@@ -31,6 +31,9 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
 	float rotation = stick->GetRawAxis(XBOX_RIGHT_XAXIS);
+	SmartDashboard::PutNumber("X",x);
+	SmartDashboard::PutNumber("Y",y);
+	SmartDashboard::PutNumber("R",rotation);
 
 	//std::cout << "X: " << x << " Y: " << y << " R: " << rotation << "\n";
 

@@ -18,6 +18,7 @@ public:
 	void StartCompressor();
 	void StopCompressor();
 	void SetCompressorClosedLoopControl(bool on);
+	bool PressureSwitchState();
 
 };
 

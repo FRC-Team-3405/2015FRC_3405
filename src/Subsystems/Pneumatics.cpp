@@ -32,3 +32,8 @@ void Pneumatics::SetCompressorClosedLoopControl(bool on)
 {
 	compressor->SetClosedLoopControl(on);
 }
+
+bool Pneumatics::PressureSwitchState()
+{
+	return compressor->GetPressureSwitchValue();
+}

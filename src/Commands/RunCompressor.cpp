@@ -18,6 +18,7 @@ void RunCompressor::Execute()
 {
 	std::cout << "Logging\n";
 	Robot::pneumatics->StartCompressor();
+	SmartDashboard::PutBoolean("Pressure Switch",Robot::pneumatics->PressureSwitchState());
 }
 
 // Make this return true when this Command no longer needs to run execute()
