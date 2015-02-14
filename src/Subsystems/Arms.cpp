@@ -4,7 +4,8 @@
 Arms::Arms() :
 		Subsystem("Arms")
 {
-
+	armSolenoid = new DoubleSolenoid(0,1);
+	armSolenoid->Set(armSolenoid->kOff);
 }
 
 void Arms::InitDefaultCommand()
@@ -15,3 +16,17 @@ void Arms::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+void Arms::Clamp()
+{
+	armSolenoid->Set(armSolenoid->kForward);
+}
+
+void Arms::Open()
+{
+	armSolenoid->Set(armSolenoid->kReverse);
+}
+
+void Arms::Stop()
+{
+	armSolenoid->Set(armSolenoid->kOff);
+}
