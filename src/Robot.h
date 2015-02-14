@@ -12,6 +12,7 @@ class Chassis;
 class OI;
 class Arms;
 class Elevator;
+class Pneumatics;
 
 class Robot : public IterativeRobot
 {

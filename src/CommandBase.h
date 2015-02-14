@@ -11,8 +11,12 @@
 #include "OI.h"
 #include "WPILib.h"
 
-class OI;
 class Chassis;
+class OI;
+class Arms;
+class Elevator;
+class Pneumatics;
+
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

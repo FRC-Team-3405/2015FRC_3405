@@ -4,6 +4,8 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 
+#include "../Commands/RunCompressor.h"
+
 class Pneumatics: public Subsystem
 {
 private:

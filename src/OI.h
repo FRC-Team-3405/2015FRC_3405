@@ -14,6 +14,13 @@ private:
 
 	JoystickButton* xboxA;
 	JoystickButton* xboxB;
+	JoystickButton* xboxX;
+	JoystickButton* xboxY;
+	JoystickButton* xboxBumperLeft;
+	JoystickButton* xboxBumperRight;
+	JoystickButton* xboxBack;
+	JoystickButton* xboxStart;
+
 public:
 	OI();
 	Joystick* GetJoystick();
