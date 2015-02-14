@@ -10,8 +10,8 @@ OI::OI()
 	xboxB = new JoystickButton(stick, XBOX_B);
 
 	// Assign actions here
-	xboxA->WhenPressed(new RunCompressor());
-
+	xboxA->WhenPressed(new ClampArm());
+	xboxB->WhenPressed(new OpenArm());
 
 }
 

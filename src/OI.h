@@ -4,6 +4,8 @@
 #include "WPILib.h"
 
 #include "Commands/RunCompressor.h"
+#include "Commands/ClampArm.h"
+#include "Commands/OpenArm.h"
 
 class OI
 {
