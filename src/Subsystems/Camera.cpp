@@ -68,3 +68,4 @@ void Camera::MoveHome()
 	//Set a default 'home' position
 	tilt->Set(0.85);
 	rotate->Set(0.5);
+}
