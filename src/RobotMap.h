@@ -33,7 +33,7 @@ const float DRIVE_POWER = .5f;
 
 // Encoder values for elevator levels
 // Bottom level is LEVELS[0], Sixth level is LEVELS[5]
-int const * const LEVELS = {0, 100, 200, 300, 400, 500};
+const int LEVELS[] = {0, 100, 200, 300, 400, 500};
 const int LEVEL_DEADZONE = 15;
 
 // If you are using multiple modules, make sure to define both the port

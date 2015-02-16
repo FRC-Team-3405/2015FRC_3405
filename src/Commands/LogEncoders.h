@@ -8,7 +8,7 @@
 class LogEncoders: public Command
 {
 public:
-	ExampleCommand();
+	LogEncoders();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
