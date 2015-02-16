@@ -13,6 +13,9 @@ private:
 	// for methods that implement subsystem capabilities
 	Encoder* enc_1;
 	Encoder* enc_2;
+
+	Talon *leftTalon;
+	Talon *rightTalon;
 public:
 	typedef enum
 	{
@@ -22,6 +25,8 @@ public:
 	Elevator();
 	void InitDefaultCommand();
 	int GetEncoder(EncoderIndex);
+	void MoveUp();
+	void MoveDown();
 };
 
 #endif

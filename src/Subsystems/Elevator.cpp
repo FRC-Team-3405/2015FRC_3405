@@ -6,8 +6,11 @@
 Elevator::Elevator() :
 		Subsystem("Elevator")
 {
-	enc_1 = new Encoder(0,1);
-	enc_2 = new Encoder(2,3);
+	enc_1 = new Encoder(ELEVATOR_ENC_1_A,ELEVATOR_ENC_1_B);
+	enc_2 = new Encoder(ELEVATOR_ENC_2_A,ELEVATOR_ENC_2_B);
+
+	leftTalon = new Talon(TALON_ELEVATOR_LEFT);
+	rightTalon = new Talon(TALON_ELEVATOR_RIGHT);
 }
 
 void Elevator::InitDefaultCommand()
@@ -27,4 +30,14 @@ int Elevator::GetEncoder(EncoderIndex e = k1)
 		return enc_2->Get();
 	else
 		throw 0;
+}
+
+void Elevator::MoveUp() {
+	leftTalon->Set(ELEVATOR_UPWARD_SPEED);
+	rightTalon->Set(-ELEVATOR_UPWARD_SPEED);
+}
+
+void Elevator::MoveDown() {
+	leftTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
+	rightTalon->Set(ELEVATOR_DOWNWARD_SPEED);
 }

@@ -16,8 +16,8 @@ void LogEncoders::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void LogEncoders::Execute()
 {
-	SmartDashboard::PutNumber("Encoder 1",Robot::elevator->GetEncoder(1));
-	SmartDashboard::PutNumber("Encoder 2",Robot::elevator->GetEncoder(2));
+	SmartDashboard::PutNumber("Encoder 1",Robot::elevator->GetEncoder(Elevator::k1));
+	SmartDashboard::PutNumber("Encoder 2",Robot::elevator->GetEncoder(Elevator::k2));
 }
 
 // Make this return true when this Command no longer needs to run execute()
