@@ -1,6 +1,8 @@
 #include <Subsystems/Elevator.h>
 #include "../RobotMap.h"
 
+
+
 Elevator::Elevator() :
 		Subsystem("Elevator")
 {
@@ -17,12 +19,12 @@ void Elevator::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-int Elevator::GetEncoder(int e = 1)
+int Elevator::GetEncoder(EncoderIndex e = k1)
 {
-	if(e == 1)
+	if(e == k1)
 		return enc_1->Get();
-	else if(e == 2)
+	else if(e == k2)
 		return enc_2->Get();
 	else
-		return -1;
+		throw 0;
 }

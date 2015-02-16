@@ -14,9 +14,14 @@ private:
 	Encoder* enc_1;
 	Encoder* enc_2;
 public:
+	typedef enum
+	{
+		k1, k2
+	}EncoderIndex;
+
 	Elevator();
 	void InitDefaultCommand();
-	int GetEncoder(int);
+	int GetEncoder(EncoderIndex);
 };
 
 #endif
