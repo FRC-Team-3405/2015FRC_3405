@@ -33,8 +33,8 @@ const int ELEVATOR_ENC_2_A = 2;
 const int ELEVATOR_ENC_2_B = 3;
 
 // PWM Channels for the Camera's Servos
-const int CAMERA_SERVO_TILT = 4;
-const int CAMERA_SERVO_ROTATE = 5;
+const int CAMERA_SERVO_TILT = 6;
+const int CAMERA_SERVO_ROTATE = 7;
 
 const float JOYSTICK_THRESHOLD = .20f;
 const float TRIGGER_THRESHOLD = .001f;
