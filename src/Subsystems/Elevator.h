@@ -3,6 +3,7 @@
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include <iostream>
 
 #include "../Commands/LogEncoders.h"
 
@@ -14,8 +15,9 @@ private:
 	Encoder* enc_1;
 	Encoder* enc_2;
 
-	Talon *leftTalon;
-	Talon *rightTalon;
+	Talon* leftTalon;
+	Talon* rightTalon;
+	Talon* wormgear;
 public:
 	typedef enum
 	{
@@ -25,8 +27,11 @@ public:
 	Elevator();
 	void InitDefaultCommand();
 	int GetEncoder(EncoderIndex);
+	void ResetEncoders();
+	bool GoToLevel(int);
 	void MoveUp();
 	void MoveDown();
+	void Hold();
 };
 
 #endif

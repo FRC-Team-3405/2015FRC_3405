@@ -5,5 +5,7 @@
 #include "Commands/ClampArm.h"
 #include "Commands/OpenArm.h"
 #include "Commands/CameraHomeCommand.h"
+#include "Commands/MoveToLevel.h"
+#include "Commands/HoldElevator.h"
 
 #endif

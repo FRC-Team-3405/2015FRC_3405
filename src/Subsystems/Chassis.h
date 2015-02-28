@@ -19,7 +19,7 @@ public:
 	Talon* backLeft;
 	Talon* backRight;
 
-	RobotDrive* drive;
+	//RobotDrive* drive;
 
 	Chassis();
 	void DriveWithJoystick(Joystick* stick);

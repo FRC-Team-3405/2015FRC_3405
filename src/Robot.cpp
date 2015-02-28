@@ -27,6 +27,11 @@ void Robot::RobotInit()
 	SmartDashboard::PutData("Clamp Arms", new ClampArm());
 	SmartDashboard::PutData("Open Arms", new OpenArm());
 	SmartDashboard::PutData("Move Camera Home", new CameraHomeCommand());
+	//SmartDashboard::PutData("Level 1", new MoveToLevel(1));
+//	SmartDashboard::PutData("Level 2", new MoveToLevel(2));
+//	SmartDashboard::PutData("Level 3", new MoveToLevel(3));
+//	SmartDashboard::PutData("Level 4", new MoveToLevel(4));
+//	SmartDashboard::PutData("Level 5", new MoveToLevel(5));
 }
 
 void Robot::DisabledPeriodic()
@@ -53,6 +58,8 @@ void Robot::TeleopInit()
 	// this line or comment it out.
 	if (autonomousCommand != NULL)
 		autonomousCommand->Cancel();
+
+	Robot::elevator->ResetEncoders();
 
 }
 

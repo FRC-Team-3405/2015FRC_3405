@@ -10,7 +10,7 @@ Chassis::Chassis() :
 	backRight = new Talon(TALON_BACKRIGHT);
 
 
-	drive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+	//drive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 }
 
 void Chassis::InitDefaultCommand()

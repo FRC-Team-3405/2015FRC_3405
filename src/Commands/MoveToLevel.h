@@ -11,7 +11,8 @@ private:
 	int level;
 	bool levelReached;
 public:
-	MoveToLevel(int);
+//	MoveToLevel(int);
+	MoveToLevel();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

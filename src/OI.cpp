@@ -6,6 +6,7 @@ OI::OI()
 	// Define Joysticks here
 	xbox = new Joystick(0);
 	gamepad = new Joystick(1);
+	flightstick = new Joystick(2);
 
 	// Define Xbox Buttons here
 	xboxA = new JoystickButton(xbox, XBOX_A);
@@ -20,6 +21,8 @@ OI::OI()
 	// Assign xbox actions here
 	xboxA->WhenPressed(new ClampArm());
 	xboxB->WhenPressed(new OpenArm());
+	xboxX->WhenPressed(new MoveToLevel());
+	xboxY->WhenPressed(new MoveToLevel());
 
 	xboxStart->WhenPressed(new RunCompressor());
 
@@ -39,4 +42,9 @@ Joystick* OI::GetJoystick()
 Joystick* OI::GetGamepad()
 {
 	return gamepad;
+}
+
+Joystick* OI::GetFlightstick()
+{
+	return flightstick;
 }

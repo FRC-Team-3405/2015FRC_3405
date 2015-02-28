@@ -10,6 +10,7 @@ class OI
 private:
 	Joystick* xbox;
 	Joystick* gamepad;
+	Joystick* flightstick;
 
 	JoystickButton* xboxA;
 	JoystickButton* xboxB;
@@ -26,6 +27,7 @@ public:
 	OI();
 	Joystick* GetJoystick();
 	Joystick* GetGamepad();
+	Joystick* GetFlightstick();
 };
 
 #endif
