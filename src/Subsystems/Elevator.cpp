@@ -82,6 +82,20 @@ void Elevator::MoveDown() {
 	wormgear->Set(WORMGEAR_DOWN_SPEED);
 }
 
+void Elevator::MoveUpWithSpeed(float _speed)
+{
+	leftTalon->Set(_speed);
+	rightTalon->Set(-_speed);
+	wormgear->Set(-WORMGEAR_UP_SPEED);
+}
+
+void Elevator::MoveDownWithSpeed(float _speed)
+{
+	leftTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
+		rightTalon->Set(ELEVATOR_DOWNWARD_SPEED);
+	wormgear->Set(_speed);
+}
+
 void Elevator::Hold()
 {
 	leftTalon->Set(0);

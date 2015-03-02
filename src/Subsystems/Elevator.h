@@ -31,6 +31,10 @@ public:
 	bool GoToLevel(int);
 	void MoveUp();
 	void MoveDown();
+
+	void MoveUpWithSpeed(float);
+	void MoveDownWithSpeed(float);
+
 	void Hold();
 };
 
