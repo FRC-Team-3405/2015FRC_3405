@@ -36,14 +36,21 @@ void MoveToLevel::Execute()
 //	else {
 //		levelReached = true;
 //	}
+
+
+	if(Robot::elevator->BottomLimitReached())
+		Robot::elevator->ResetEncoders();
+
 	Joystick* flightstick = Robot::oi->GetFlightstick();
 	float flightstick_Y = flightstick->GetY();
-	if(flightstick_Y > .15 && flightstick->GetRawButton(1))
+	if(flightstick_Y > .15 && flightstick->GetRawButton(1) && !Robot::elevator->TopLimitReached())
 		Robot::elevator->MoveUpWithSpeed(flightstick_Y);
-	else if(flightstick_Y < -.15 && flightstick->GetRawButton(1))
+	else if(flightstick_Y < -.15 && flightstick->GetRawButton(1) && !Robot::elevator->BottomLimitReached())
 		Robot::elevator->MoveDownWithSpeed(-flightstick_Y);
 	else
 		Robot::elevator->Hold();
+
+
 
 	//levelReached = Robot::elevator->GoToLevel(1);
 }

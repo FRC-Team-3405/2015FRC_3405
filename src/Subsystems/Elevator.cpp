@@ -9,6 +9,9 @@ Elevator::Elevator() :
 	enc_1 = new Encoder(ELEVATOR_ENC_1_A,ELEVATOR_ENC_1_B);
 	enc_2 = new Encoder(ELEVATOR_ENC_2_A,ELEVATOR_ENC_2_B);
 
+	bottomLimitSwitch = new DigitalInput(ELEVATOR_BOTTOM_SWITCH);
+	topLimitSwitch = new DigitalInput(ELEVATOR_TOP_SWITCH);
+
 	leftTalon = new Talon(TALON_ELEVATOR_LEFT);
 	rightTalon = new Talon(TALON_ELEVATOR_RIGHT);
 	wormgear = new Talon(TALON_WORMGEAR);
@@ -38,6 +41,18 @@ void Elevator::ResetEncoders()
 {
 	enc_1->Reset();
 	enc_2->Reset();
+}
+
+bool Elevator::BottomLimitReached()
+{
+	// Switch reads at 0 when it is pressed so reverse the bool returned
+	return !bottomLimitSwitch->Get();
+}
+
+bool Elevator::TopLimitReached()
+{
+	// Switch reads 0 when it is pressed, so reverse the bool returned
+	return !topLimitSwitch->Get();
 }
 
 bool Elevator::GoToLevel(int _level = 0)

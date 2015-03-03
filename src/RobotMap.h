@@ -35,6 +35,10 @@ const int ELEVATOR_ENC_1_B = 1;
 const int ELEVATOR_ENC_2_A = 2;
 const int ELEVATOR_ENC_2_B = 3;
 
+// Digital IO channels for elevator limit switches
+const int ELEVATOR_BOTTOM_SWITCH = 4;
+const int ELEVATOR_TOP_SWITCH = 5;
+
 // PWM Channels for the Camera's Servos
 const int CAMERA_SERVO_TILT = 6;
 const int CAMERA_SERVO_ROTATE = 7;

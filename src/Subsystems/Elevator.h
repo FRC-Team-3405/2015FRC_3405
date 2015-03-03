@@ -15,6 +15,9 @@ private:
 	Encoder* enc_1;
 	Encoder* enc_2;
 
+	DigitalInput* bottomLimitSwitch;
+	DigitalInput* topLimitSwitch;
+
 	Talon* leftTalon;
 	Talon* rightTalon;
 	Talon* wormgear;
@@ -28,6 +31,10 @@ public:
 	void InitDefaultCommand();
 	int GetEncoder(EncoderIndex);
 	void ResetEncoders();
+
+	bool BottomLimitReached();
+	bool TopLimitReached();
+
 	bool GoToLevel(int);
 	void MoveUp();
 	void MoveDown();
