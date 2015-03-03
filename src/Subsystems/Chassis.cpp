@@ -65,7 +65,6 @@ void Chassis::DriveDirectional(float theta, float magnitude)
 {
 
 }
-}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
