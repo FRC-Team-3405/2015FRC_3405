@@ -60,6 +60,12 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	//std::cout << "X0: " << x << " Y0: " << y << " R0: " << rotation << "\n";
 
 }
+
+void Chassis::DriveDirectional(float theta, float magnitude)
+{
+
+}
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
