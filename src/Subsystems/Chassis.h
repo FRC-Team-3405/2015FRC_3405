@@ -23,7 +23,8 @@ public:
 
 	Chassis();
 	void DriveWithJoystick(Joystick* stick);
-	void DriveDirectional(float, float);
+	void DriveDirectional(float magnitudeX, float magnitudeY, float rotation, float power);
+	void DriveDirectional(float magnitudeX, float magnitudeY, float rotation);
 
 	void InitDefaultCommand();
 };

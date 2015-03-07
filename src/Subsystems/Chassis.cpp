@@ -31,11 +31,10 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	float x = -1 * stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
 	float rotation = stick->GetRawAxis(XBOX_RIGHT_XAXIS);
+
 	SmartDashboard::PutNumber("X",x);
 	SmartDashboard::PutNumber("Y",y);
 	SmartDashboard::PutNumber("R",rotation);
-
-	//std::cout << "X: " << x << " Y: " << y << " R: " << rotation << "\n";
 
 	if(fabs(x) < JOYSTICK_THRESHOLD)
 		x = 0.0;
@@ -47,23 +46,25 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 	if(trigger < -TRIGGER_THRESHOLD)
 		power *= (1 + (trigger * -1));
 
-	float FR = (y + rotation + x) * power;
-	float BR = (y + rotation - x) * power;
-	float FL = (-1.0 * (y - rotation - x)) * power;
-	float BL = (-1.0 * (y - rotation + x)) * power;
+	DriveDirectional(x, y, rotation, power);
+}
+
+void Chassis::DriveDirectional(float magnitudeX, float magnitudeY, float rotation)
+{
+	DriveDirectional(magnitudeX, magnitudeY, rotation, DRIVE_POWER);
+}
+
+void Chassis::DriveDirectional(float magnitudeX, float magnitudeY, float rotation, float power)
+{
+	float FR = (magnitudeY + rotation + magnitudeX) * power;
+	float BR = (magnitudeY + rotation - magnitudeX) * power;
+	float FL = (-1.0 * (magnitudeY - rotation - magnitudeX)) * power;
+	float BL = (-1.0 * (magnitudeY - rotation + magnitudeX)) * power;
 
 	Robot::chassis->frontRight->Set(FR);
 	Robot::chassis->frontLeft->Set(FL);
 	Robot::chassis->backRight->Set(BR);
 	Robot::chassis->backLeft->Set(BL);
-
-	//std::cout << "X0: " << x << " Y0: " << y << " R0: " << rotation << "\n";
-
-}
-
-void Chassis::DriveDirectional(float theta, float magnitude)
-{
-
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
