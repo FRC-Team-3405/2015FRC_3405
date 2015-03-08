@@ -14,7 +14,7 @@ Elevator::Elevator() :
 
 	leftTalon = new Talon(TALON_ELEVATOR_LEFT);
 	rightTalon = new Talon(TALON_ELEVATOR_RIGHT);
-	wormgear = new Talon(TALON_WORMGEAR);
+	wormgear = new Victor(VICTOR_WORMGEAR);
 }
 
 void Elevator::InitDefaultCommand()
@@ -63,13 +63,21 @@ bool Elevator::GoToLevel(int _level = 0)
 	if(encoderCurrent < encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 	{
 		SmartDashboard::PutString("Level", "less than");
-		MoveUp();
+		if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
+			MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED*0.3);
+		} else {
+			MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
+		}
 		return false;
 	}
 	else if (encoderCurrent > encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 	{
 		SmartDashboard::PutString("Level", "greater than");
-		MoveDown();
+		if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
+			MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*0.3);
+		} else {
+			MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED);
+		}
 		return false;
 	}
 	else if(abs(encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
@@ -106,8 +114,8 @@ void Elevator::MoveUpWithSpeed(float _speed)
 
 void Elevator::MoveDownWithSpeed(float _speed)
 {
-	leftTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
-		rightTalon->Set(ELEVATOR_DOWNWARD_SPEED);
+	leftTalon->Set(-_speed);
+	rightTalon->Set(_speed);
 	wormgear->Set(_speed);
 }
 

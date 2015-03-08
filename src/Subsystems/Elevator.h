@@ -20,7 +20,7 @@ private:
 
 	Talon* leftTalon;
 	Talon* rightTalon;
-	Talon* wormgear;
+	Victor* wormgear;
 public:
 	typedef enum
 	{

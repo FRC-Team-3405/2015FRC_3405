@@ -40,19 +40,23 @@ void MoveToLevel::Execute()
 
 	if(Robot::elevator->BottomLimitReached())
 		Robot::elevator->ResetEncoders();
-//
-//	Joystick* flightstick = Robot::oi->GetFlightstick();
-//	float flightstick_Y = flightstick->GetY();
-//	if(flightstick_Y > .15 && flightstick->GetRawButton(1) && !Robot::elevator->TopLimitReached())
-//		Robot::elevator->MoveUpWithSpeed(flightstick_Y);
-//	else if(flightstick_Y < -.15 && flightstick->GetRawButton(1) && !Robot::elevator->BottomLimitReached())
-//		Robot::elevator->MoveDownWithSpeed(-flightstick_Y);
-//	else
-//		Robot::elevator->Hold();
 
+	Joystick* flightstick = Robot::oi->GetFlightstick();
+	if (flightstick->GetRawButton(1)) {
+		float flightstick_Y = flightstick->GetY();
+		if(flightstick_Y > .15 && flightstick->GetRawButton(1) && !Robot::elevator->TopLimitReached())
+			Robot::elevator->MoveUpWithSpeed(flightstick_Y);
+		else if(flightstick_Y < -.15 && flightstick->GetRawButton(1) && !Robot::elevator->BottomLimitReached())
+			Robot::elevator->MoveDownWithSpeed(-flightstick_Y);
+		else
+			Robot::elevator->Hold();
+	} else {
+		Robot::elevator->Hold();
+	}
 
-
-	levelReached = Robot::elevator->GoToLevel(1);
+	if (flightstick->GetRawButton(2)) {
+		levelReached = Robot::elevator->GoToLevel(1);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

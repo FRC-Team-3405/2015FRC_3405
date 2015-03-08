@@ -26,7 +26,7 @@ const int TALON_BACKLEFT = 3;
 const int TALON_ELEVATOR_LEFT = 4;
 const int TALON_ELEVATOR_RIGHT = 5;
 // PWM channel for wormgear
-const int TALON_WORMGEAR = 6;
+const int VICTOR_WORMGEAR = 6;
 
 
 // Digital IO channels for elevator quadrature encoders
@@ -51,11 +51,12 @@ const float DRIVE_POWER = .5f;
 // Encoder values for elevator levels
 // Bottom level is LEVELS[0], Sixth level is LEVELS[5]
 const int LEVELS[] = {0, 300, 600, 900, 1200, 1500};
-const int LEVEL_DEADZONE = 25;
+const int LEVEL_DEADZONE = 10;
+const int LEVEL_SLOWZONE = 50;
 
 // Speed values for talons (-1 to 1) for elevator
-const float ELEVATOR_UPWARD_SPEED = 0.6;
-const float ELEVATOR_DOWNWARD_SPEED = 0;
+const float ELEVATOR_UPWARD_SPEED = 0.3;
+const float ELEVATOR_DOWNWARD_SPEED = 0.1;
 // Speed values for talons (-1 to 1) for wormgear
 const float WORMGEAR_UP_SPEED = 1;
 const float WORMGEAR_DOWN_SPEED = .25;
