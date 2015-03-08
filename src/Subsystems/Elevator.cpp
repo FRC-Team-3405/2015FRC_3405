@@ -55,25 +55,24 @@ bool Elevator::TopLimitReached()
 	return !topLimitSwitch->Get();
 }
 
-bool Elevator::GoToLevel(int _level)
+bool Elevator::GoToLevel(int _level = 0)
 {
 	int encoderCurrent = enc_1->Get();
 	int encoderGoal = LEVELS[_level];
 
-	//TODO: Make this a unilateral tolerance so it never goes below the target level, only above
-	if(encoderCurrent < encoderGoal && (encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
+	if(encoderCurrent < encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 	{
 		SmartDashboard::PutString("Level", "less than");
 		MoveUp();
 		return false;
 	}
-	else if (encoderCurrent > encoderGoal &&  (encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
+	else if (encoderCurrent > encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 	{
 		SmartDashboard::PutString("Level", "greater than");
 		MoveDown();
 		return false;
 	}
-	else if((encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
+	else if(abs(encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
 	{
 		SmartDashboard::PutString("Level", "reached");
 		Hold();
