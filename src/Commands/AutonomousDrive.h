@@ -7,6 +7,8 @@
 
 class AutonomousDrive: public Command
 {
+private:
+	Timer* timer;
 public:
 	AutonomousDrive();
 	void Initialize();
