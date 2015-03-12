@@ -9,5 +9,6 @@
 #include "Commands/HoldElevator.h"
 #include "Commands/AnalogElevatorMove.h"
 #include "Commands/DriveDirectionalCommand.h"
+#include "Commands/ReleaseDriveReverse.h"
 
 #endif

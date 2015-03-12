@@ -37,6 +37,14 @@ void MoveToLevel::Execute()
 
 	levelReached = Robot::elevator->GoToLevel(level);
 
+	if (levelReached) {
+		Robot::oi->GetGamepad()->SetOutput(GREEN_LED,true);
+		Robot::oi->GetGamepad()->SetOutput(RED_LED,false);
+	}
+	else {
+		Robot::oi->GetGamepad()->SetOutput(GREEN_LED,false);
+		Robot::oi->GetGamepad()->SetOutput(RED_LED,true);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

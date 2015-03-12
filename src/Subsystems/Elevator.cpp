@@ -55,41 +55,50 @@ bool Elevator::TopLimitReached()
 	return !topLimitSwitch->Get();
 }
 
-bool Elevator::GoToLevel(int _level = 0)
+bool Elevator::GoToLevel(int _level)
 {
-	int encoderCurrent = enc_1->Get();
-	int encoderGoal = LEVELS[_level];
 
-	if(encoderCurrent < encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
+
+	if(_level == 0)
 	{
-		SmartDashboard::PutString("Level", "less than");
-		if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
-			MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED*0.3);
-		} else {
-			MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
-		}
-		return false;
-	}
-	else if (encoderCurrent > encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
-	{
-		SmartDashboard::PutString("Level", "greater than");
-		if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
-			MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*0.3);
-		} else {
-			MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED);
-		}
-		return false;
-	}
-	else if(abs(encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
-	{
-		SmartDashboard::PutString("Level", "reached");
-		Hold();
-		return true;
+		MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*.7);
+		return BottomLimitReached();
 	}
 	else
 	{
-		SmartDashboard::PutString("Level", "error");
-		return true;
+		int encoderCurrent = enc_1->Get();
+		int encoderGoal = LEVELS[_level];
+		if(encoderCurrent < encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
+		{
+			SmartDashboard::PutString("Level", "less than");
+			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
+				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED*0.3);
+			} else {
+				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
+			}
+			return false;
+		}
+		else if (encoderCurrent > encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
+		{
+			SmartDashboard::PutString("Level", "greater than");
+			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
+				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*0.3);
+			} else {
+				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED);
+			}
+			return false;
+		}
+		else if(abs(encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
+		{
+			SmartDashboard::PutString("Level", "reached");
+			Hold();
+			return true;
+		}
+		else
+		{
+			SmartDashboard::PutString("Level", "error");
+			return true;
+		}
 	}
 }
 

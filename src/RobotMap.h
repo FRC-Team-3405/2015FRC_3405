@@ -4,17 +4,7 @@
 #include "WPILib.h"
 #include "XboxMap.h"
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
 const float PI = 3.14f;
-// For example to map the left and right motors, you could define the
-// following variables to use with your drivetrain subsystem.
-//const int LEFTMOTOR = 1;
-//const int RIGHTMOTOR = 2;
 
 // PWM Channels for the Talon motor controllers for chassis
 const int TALON_FRONTRIGHT = 0;
@@ -61,9 +51,7 @@ const float ELEVATOR_DOWNWARD_SPEED = 0.1;
 const float WORMGEAR_UP_SPEED = 1;
 const float WORMGEAR_DOWN_SPEED = .25;
 
-// If you are using multiple modules, make sure to define both the port
-// number and the module. For example you with a rangefinder:
-//const int RANGE_FINDER_PORT = 1;
-//const int RANGE_FINDER_MODULE = 1;
-
+// Outputs on operator launchpad for LED indicators
+const int GREEN_LED = 1;
+const int RED_LED = 2;
 #endif

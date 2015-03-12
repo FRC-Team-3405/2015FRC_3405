@@ -41,15 +41,15 @@ OI::OI()
 	gamepad12 = new JoystickButton(gamepad, 12);
 
 	//Assign gamepad actions here
-	gamepad1->WhenPressed(new MoveToLevel(1));
-	gamepad2->WhenPressed(new MoveToLevel(2));
-	gamepad3->WhenPressed(new MoveToLevel(3));
-	gamepad4->WhenPressed(new MoveToLevel(4));
-	gamepad5->WhenPressed(new MoveToLevel(5));
-	gamepad6->WhenPressed(new MoveToLevel(6));
+	gamepad1->WhenPressed(new MoveToLevel(0));
+	gamepad2->WhenPressed(new MoveToLevel(1));
+	gamepad3->WhenPressed(new MoveToLevel(2));
+	gamepad4->WhenPressed(new MoveToLevel(3));
+	gamepad5->WhenPressed(new MoveToLevel(4));
+	gamepad6->WhenPressed(new MoveToLevel(5));
 	gamepad7->WhenPressed(new OpenArm());
 	gamepad8->WhenPressed(new ClampArm());
-	gamepad9->WhenPressed(new CameraHomeCommand());
+	gamepad9->WhenPressed(new ReleaseDriveReverse());
 	gamepad10->WhenPressed(new CameraHomeCommand());
 	gamepad11->WhenPressed(new CameraHomeCommand());
 	gamepad12->WhenPressed(new CameraHomeCommand());
