@@ -9,6 +9,7 @@
 #include "Commands/AnalogElevatorMove.h"
 #include "Commands/DriveDirectionalCommand.h"
 #include "Commands/ReleaseDriveReverse.h"
+#include "Commands/MoveToLevel.h"
 
 #include "Commands/MoveToLevel0.h"
 #include "Commands/MoveToLevel1.h"

@@ -6,6 +6,10 @@
 Elevator::Elevator() :
 		Subsystem("Elevator")
 {
+	DESTINATION_LEVEL = 0;
+	DESTINATION_REACHED = true;
+	MANUALLY_CONTROLLED = false;
+
 	enc_1 = new Encoder(ELEVATOR_ENC_1_A,ELEVATOR_ENC_1_B);
 	enc_2 = new Encoder(ELEVATOR_ENC_2_A,ELEVATOR_ENC_2_B);
 
@@ -22,7 +26,7 @@ void Elevator::InitDefaultCommand()
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 	//SetDefaultCommand(new HoldElevator());
-	SetDefaultCommand(new AnalogElevatorMove());
+	SetDefaultCommand(new MoveToLevel());
 }
 
 // Put methods for controlling this subsystem

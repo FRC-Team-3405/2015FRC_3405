@@ -38,6 +38,9 @@ public:
 	static Camera* camera;
 
 	static OI* oi;
+
+
+
 };
 
 #endif

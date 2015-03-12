@@ -27,6 +27,10 @@ public:
 		k1, k2
 	}EncoderIndex;
 
+	int DESTINATION_LEVEL;
+	bool DESTINATION_REACHED;
+	bool MANUALLY_CONTROLLED;
+
 	Elevator();
 	void InitDefaultCommand();
 	int GetEncoder(EncoderIndex);

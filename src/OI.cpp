@@ -52,6 +52,19 @@ OI::OI()
 	gamepad10->WhenPressed(new CameraHomeCommand());
 	gamepad11->WhenPressed(new CameraHomeCommand());
 	gamepad12->WhenPressed(new CameraHomeCommand());
+//
+//	gamepad1->WhileHeld(new MoveToLevel0());
+//	gamepad2->WhileHeld(new MoveToLevel1());
+//	gamepad3->WhileHeld(new MoveToLevel2());
+//	gamepad4->WhileHeld(new MoveToLevel3());
+//	gamepad5->WhileHeld(new MoveToLevel4());
+//	gamepad6->WhileHeld(new MoveToLevel5());
+//	gamepad7->WhenPressed(new OpenArm());
+//	gamepad8->WhenPressed(new ClampArm());
+//	gamepad9->WhenPressed(new ReleaseDriveReverse());
+//	gamepad10->WhenPressed(new CameraHomeCommand());
+//	gamepad11->WhenPressed(new CameraHomeCommand());
+//	gamepad12->WhenPressed(new CameraHomeCommand());
 
 
 }
