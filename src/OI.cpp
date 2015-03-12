@@ -66,6 +66,10 @@ OI::OI()
 //	gamepad11->WhenPressed(new CameraHomeCommand());
 //	gamepad12->WhenPressed(new CameraHomeCommand());
 
+	// Define flightstick buttons here
+	flightstickTrigger = new JoystickButton(flightstick, 1);
+	// Assign flightstick button actions here
+	flightstickTrigger->WhileHeld(new AnalogElevatorMove());
 
 }
 
