@@ -22,6 +22,17 @@ private:
 	JoystickButton* xboxStart;
 
 	JoystickButton *gamepad1;
+	JoystickButton *gamepad2;
+	JoystickButton *gamepad3;
+	JoystickButton *gamepad4;
+	JoystickButton *gamepad5;
+	JoystickButton *gamepad6;
+	JoystickButton *gamepad7;
+	JoystickButton *gamepad8;
+	JoystickButton *gamepad9;
+	JoystickButton *gamepad10;
+	JoystickButton *gamepad11;
+	JoystickButton *gamepad12;
 
 public:
 	OI();
