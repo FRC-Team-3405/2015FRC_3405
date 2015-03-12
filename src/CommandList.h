@@ -8,5 +8,6 @@
 #include "Commands/MoveToLevel.h"
 #include "Commands/HoldElevator.h"
 #include "Commands/AnalogElevatorMove.h"
+#include "Commands/DriveDirectionalCommand.h"
 
 #endif
