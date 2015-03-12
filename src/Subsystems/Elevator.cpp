@@ -22,7 +22,7 @@ void Elevator::InitDefaultCommand()
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 	//SetDefaultCommand(new HoldElevator());
-	SetDefaultCommand(new MoveToLevel());
+	SetDefaultCommand(new AnalogElevatorMove());
 }
 
 // Put methods for controlling this subsystem
@@ -94,29 +94,37 @@ bool Elevator::GoToLevel(int _level = 0)
 }
 
 void Elevator::MoveUp() {
-	leftTalon->Set(ELEVATOR_UPWARD_SPEED);
-	rightTalon->Set(-ELEVATOR_UPWARD_SPEED);
-	wormgear->Set(-WORMGEAR_UP_SPEED);
+	if (!TopLimitReached()) {
+		leftTalon->Set(ELEVATOR_UPWARD_SPEED);
+		rightTalon->Set(-ELEVATOR_UPWARD_SPEED);
+		wormgear->Set(-WORMGEAR_UP_SPEED);
+	}
 }
 
 void Elevator::MoveDown() {
-	leftTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
-	rightTalon->Set(ELEVATOR_DOWNWARD_SPEED);
-	wormgear->Set(WORMGEAR_DOWN_SPEED);
+	if (!BottomLimitReached()) {
+		leftTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
+		rightTalon->Set(ELEVATOR_DOWNWARD_SPEED);
+		wormgear->Set(WORMGEAR_DOWN_SPEED);
+	}
 }
 
 void Elevator::MoveUpWithSpeed(float _speed)
 {
-	leftTalon->Set(_speed);
-	rightTalon->Set(-_speed);
-	wormgear->Set(-WORMGEAR_UP_SPEED);
+	if (!TopLimitReached()) {
+		leftTalon->Set(_speed);
+		rightTalon->Set(-_speed);
+		wormgear->Set(-WORMGEAR_UP_SPEED);
+	}
 }
 
 void Elevator::MoveDownWithSpeed(float _speed)
 {
-	leftTalon->Set(-_speed);
-	rightTalon->Set(_speed);
-	wormgear->Set(_speed);
+	if (!BottomLimitReached()) {
+		leftTalon->Set(-_speed);
+		rightTalon->Set(_speed);
+		wormgear->Set(_speed);
+	}
 }
 
 void Elevator::Hold()

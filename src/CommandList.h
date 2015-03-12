@@ -7,5 +7,6 @@
 #include "Commands/CameraHomeCommand.h"
 #include "Commands/MoveToLevel.h"
 #include "Commands/HoldElevator.h"
+#include "Commands/AnalogElevatorMove.h"
 
 #endif

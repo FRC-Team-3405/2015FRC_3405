@@ -5,7 +5,7 @@
 #include "WPILib.h"
 #include <iostream>
 
-#include "../Commands/LogEncoders.h"
+#include "CommandList.h"
 
 class Elevator: public Subsystem
 {
