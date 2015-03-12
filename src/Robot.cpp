@@ -66,6 +66,7 @@ void Robot::TeleopInit()
 void Robot::TeleopPeriodic()
 {
 	Scheduler::GetInstance()->Run();
+	SmartDashboard::PutData(Scheduler::GetInstance());
 }
 
 void Robot::TestPeriodic()

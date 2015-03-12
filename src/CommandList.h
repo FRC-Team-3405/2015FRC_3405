@@ -5,10 +5,16 @@
 #include "Commands/ClampArm.h"
 #include "Commands/OpenArm.h"
 #include "Commands/CameraHomeCommand.h"
-#include "Commands/MoveToLevel.h"
 #include "Commands/HoldElevator.h"
 #include "Commands/AnalogElevatorMove.h"
 #include "Commands/DriveDirectionalCommand.h"
 #include "Commands/ReleaseDriveReverse.h"
+
+#include "Commands/MoveToLevel0.h"
+#include "Commands/MoveToLevel1.h"
+#include "Commands/MoveToLevel2.h"
+#include "Commands/MoveToLevel3.h"
+#include "Commands/MoveToLevel4.h"
+#include "Commands/MoveToLevel5.h"
 
 #endif

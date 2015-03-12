@@ -19,12 +19,11 @@ OI::OI()
 	xboxStart = new JoystickButton(xbox, XBOX_START);
 
 	// Assign xbox actions here
-	xboxA->WhenPressed(new ClampArm());
-	xboxB->WhenPressed(new OpenArm());
-	xboxX->WhenPressed(new MoveToLevel());
-	xboxY->WhenPressed(new MoveToLevel());
-
-	xboxStart->WhenPressed(new RunCompressor());
+//	xboxA->WhenPressed(new ClampArm());
+//	xboxB->WhenPressed(new OpenArm());
+//	xboxX->WhenPressed(new MoveToLevel());
+//	xboxY->WhenPressed(new MoveToLevel());
+//	xboxStart->WhenPressed(new RunCompressor());
 
 	//Define gamepad buttons here
 	gamepad1 = new JoystickButton(gamepad, 1);
@@ -41,12 +40,12 @@ OI::OI()
 	gamepad12 = new JoystickButton(gamepad, 12);
 
 	//Assign gamepad actions here
-	gamepad1->WhenPressed(new MoveToLevel(0));
-	gamepad2->WhenPressed(new MoveToLevel(1));
-	gamepad3->WhenPressed(new MoveToLevel(2));
-	gamepad4->WhenPressed(new MoveToLevel(3));
-	gamepad5->WhenPressed(new MoveToLevel(4));
-	gamepad6->WhenPressed(new MoveToLevel(5));
+	gamepad1->WhenPressed(new MoveToLevel0());
+	gamepad2->WhenPressed(new MoveToLevel1());
+	gamepad3->WhenPressed(new MoveToLevel2());
+	gamepad4->WhenPressed(new MoveToLevel3());
+	gamepad5->WhenPressed(new MoveToLevel4());
+	gamepad6->WhenPressed(new MoveToLevel5());
 	gamepad7->WhenPressed(new OpenArm());
 	gamepad8->WhenPressed(new ClampArm());
 	gamepad9->WhenPressed(new ReleaseDriveReverse());

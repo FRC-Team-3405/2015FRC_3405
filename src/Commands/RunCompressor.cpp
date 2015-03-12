@@ -16,7 +16,6 @@ void RunCompressor::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void RunCompressor::Execute()
 {
-	std::cout << "Logging\n";
 	Robot::pneumatics->StartCompressor();
 	SmartDashboard::PutBoolean("Pressure Switch",Robot::pneumatics->PressureSwitchState());
 }
