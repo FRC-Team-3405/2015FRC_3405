@@ -19,7 +19,7 @@ void Robot::RobotInit()
 	camera = new Camera();
 
 	oi = new OI();
-	//autonomousCommand = new ExampleCommand();
+	autonomousCommand = new AutonomousCommandGroup();
 	lw = LiveWindow::GetInstance();
 	//Display currently running commands on the dashboard
 	SmartDashboard::PutData(Scheduler::GetInstance());

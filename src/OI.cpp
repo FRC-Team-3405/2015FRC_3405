@@ -49,7 +49,7 @@ OI::OI()
 	gamepad7->WhenPressed(new OpenArm());
 	gamepad8->WhenPressed(new ClampArm());
 	gamepad9->WhenPressed(new ReleaseDriveReverse());
-	gamepad10->WhenPressed(new CameraHomeCommand());
+	gamepad10->WhenPressed(new ReleaseGround());
 	gamepad11->WhenPressed(new CameraHomeCommand());
 	gamepad12->WhenPressed(new CameraHomeCommand());
 
