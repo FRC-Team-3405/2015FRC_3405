@@ -40,31 +40,18 @@ OI::OI()
 	gamepad12 = new JoystickButton(gamepad, 12);
 
 	//Assign gamepad actions here
-	gamepad1->WhenPressed(new MoveToLevel0());
-	gamepad2->WhenPressed(new MoveToLevel1());
-	gamepad3->WhenPressed(new MoveToLevel2());
-	gamepad4->WhenPressed(new MoveToLevel3());
-	gamepad5->WhenPressed(new MoveToLevel4());
-	gamepad6->WhenPressed(new MoveToLevel5());
+	gamepad1->WhenPressed(new SetDestinationLevel(0));
+	gamepad2->WhenPressed(new SetDestinationLevel(1));
+	gamepad3->WhenPressed(new SetDestinationLevel(2));
+	gamepad4->WhenPressed(new SetDestinationLevel(3));
+	gamepad5->WhenPressed(new SetDestinationLevel(4));
+	gamepad6->WhenPressed(new SetDestinationLevel(5));
 	gamepad7->WhenPressed(new OpenArm());
 	gamepad8->WhenPressed(new ClampArm());
 	gamepad9->WhenPressed(new ReleaseDriveReverse());
 	gamepad10->WhenPressed(new CameraHomeCommand());
 	gamepad11->WhenPressed(new CameraHomeCommand());
 	gamepad12->WhenPressed(new CameraHomeCommand());
-//
-//	gamepad1->WhileHeld(new MoveToLevel0());
-//	gamepad2->WhileHeld(new MoveToLevel1());
-//	gamepad3->WhileHeld(new MoveToLevel2());
-//	gamepad4->WhileHeld(new MoveToLevel3());
-//	gamepad5->WhileHeld(new MoveToLevel4());
-//	gamepad6->WhileHeld(new MoveToLevel5());
-//	gamepad7->WhenPressed(new OpenArm());
-//	gamepad8->WhenPressed(new ClampArm());
-//	gamepad9->WhenPressed(new ReleaseDriveReverse());
-//	gamepad10->WhenPressed(new CameraHomeCommand());
-//	gamepad11->WhenPressed(new CameraHomeCommand());
-//	gamepad12->WhenPressed(new CameraHomeCommand());
 
 	// Define flightstick buttons here
 	flightstickTrigger = new JoystickButton(flightstick, 1);

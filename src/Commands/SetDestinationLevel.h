@@ -1,17 +1,17 @@
-#ifndef MOVE_TO_LEVEL_0_H
-#define MOVE_TO_LEVEL_0_H
+#ifndef SET_DESTINATION_LEVEL_H
+#define SET_DESTINATION_LEVEL_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 #include "Robot.h"
 
-class MoveToLevel0: public Command
+class SetDestinationLevel: public Command
 {
 private:
 	int level;
 	bool levelReached;
 public:
-	MoveToLevel0();
+	SetDestinationLevel(int);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
