@@ -30,8 +30,8 @@ const int ELEVATOR_BOTTOM_SWITCH = 4;
 const int ELEVATOR_TOP_SWITCH = 5;
 
 // PWM Channels for the Camera's Servos
-const int CAMERA_SERVO_TILT = 6;
-const int CAMERA_SERVO_ROTATE = 7;
+const int CAMERA_SERVO_TILT = 7;
+const int CAMERA_SERVO_ROTATE = 8;
 
 const float JOYSTICK_THRESHOLD = .20f;
 const float TRIGGER_THRESHOLD = .001f;
