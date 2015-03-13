@@ -55,8 +55,15 @@ OI::OI()
 
 	// Define flightstick buttons here
 	flightstickTrigger = new JoystickButton(flightstick, 1);
+	flightstick2 = new JoystickButton(flightstick, 2);
+	flightstick3 = new JoystickButton(flightstick, 3);
+	flightstick4 = new JoystickButton(flightstick, 4);
+	flightstick5 = new JoystickButton(flightstick, 5);
+
 	// Assign flightstick button actions here
 	flightstickTrigger->WhileHeld(new AnalogElevatorMove());
+	flightstick2->WhenPressed(new ClampArm());
+	flightstick3->WhenPressed(new OpenArm());
 
 }
 

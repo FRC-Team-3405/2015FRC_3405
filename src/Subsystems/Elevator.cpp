@@ -107,37 +107,49 @@ bool Elevator::GoToLevel(int _level)
 }
 
 void Elevator::MoveUp() {
-	if (!TopLimitReached()) {
-		leftTalon->Set(-ELEVATOR_UPWARD_SPEED);
-		rightTalon->Set(ELEVATOR_UPWARD_SPEED);
-		wormgear->Set(WORMGEAR_UP_SPEED);
-	}
+//	if (!TopLimitReached()) {
+//		leftTalon->Set(-ELEVATOR_UPWARD_SPEED);
+//		rightTalon->Set(ELEVATOR_UPWARD_SPEED);
+//		wormgear->Set(WORMGEAR_UP_SPEED);
+//	}
+	leftTalon->Set(-ELEVATOR_UPWARD_SPEED);
+	rightTalon->Set(ELEVATOR_UPWARD_SPEED);
+	wormgear->Set(WORMGEAR_UP_SPEED);
 }
 
 void Elevator::MoveDown() {
-	if (!BottomLimitReached()) {
-		leftTalon->Set(ELEVATOR_DOWNWARD_SPEED);
-		rightTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
-		wormgear->Set(-WORMGEAR_DOWN_SPEED);
-	}
+//	if (!BottomLimitReached()) {
+//		leftTalon->Set(ELEVATOR_DOWNWARD_SPEED);
+//		rightTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
+//		wormgear->Set(-WORMGEAR_DOWN_SPEED);
+//	}
+	leftTalon->Set(ELEVATOR_DOWNWARD_SPEED);
+	rightTalon->Set(-ELEVATOR_DOWNWARD_SPEED);
+	wormgear->Set(-WORMGEAR_DOWN_SPEED);
 }
 
 void Elevator::MoveUpWithSpeed(float _speed)
 {
-	if (!TopLimitReached()) {
-		leftTalon->Set(-_speed);
-		rightTalon->Set(_speed);
-		wormgear->Set(WORMGEAR_UP_SPEED);
-	}
+//	if (!TopLimitReached()) {
+//		leftTalon->Set(-_speed);
+//		rightTalon->Set(_speed);
+//		wormgear->Set(WORMGEAR_UP_SPEED);
+//	}
+	leftTalon->Set(-_speed);
+	rightTalon->Set(_speed);
+	wormgear->Set(WORMGEAR_UP_SPEED);
 }
 
 void Elevator::MoveDownWithSpeed(float _speed)
 {
-	if (!BottomLimitReached()) {
-		leftTalon->Set(_speed);
-		rightTalon->Set(-_speed);
-		wormgear->Set(-_speed);
-	}
+//	if (!BottomLimitReached()) {
+//		leftTalon->Set(_speed);
+//		rightTalon->Set(-_speed);
+//		wormgear->Set(-_speed);
+//	}
+	leftTalon->Set(_speed);
+	rightTalon->Set(-_speed);
+	wormgear->Set(-WORMGEAR_DOWN_SPEED);
 }
 
 void Elevator::Hold()

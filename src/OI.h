@@ -36,6 +36,11 @@ private:
 	JoystickButton* gamepad12;
 	// Flightstick buttons
 	JoystickButton* flightstickTrigger;
+	JoystickButton* flightstick2;
+	JoystickButton* flightstick3;
+	JoystickButton* flightstick4;
+	JoystickButton* flightstick5;
+
 
 public:
 	OI();

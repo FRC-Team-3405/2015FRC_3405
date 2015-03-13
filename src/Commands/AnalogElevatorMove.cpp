@@ -27,9 +27,9 @@ void AnalogElevatorMove::Execute()
 	if (flightstick->GetRawButton(1)) {
 		float flightstick_Y = flightstick->GetY();
 		if(flightstick_Y > .15 && flightstick->GetRawButton(1) && !Robot::elevator->TopLimitReached())
-			Robot::elevator->MoveUpWithSpeed(flightstick_Y);
+			Robot::elevator->MoveUpWithSpeed(flightstick_Y * ELEVATOR_POWER);
 		else if(flightstick_Y < -.15 && flightstick->GetRawButton(1) && !Robot::elevator->BottomLimitReached())
-			Robot::elevator->MoveDownWithSpeed(-flightstick_Y);
+			Robot::elevator->MoveDownWithSpeed(-flightstick_Y * ELEVATOR_POWER);
 		else
 			Robot::elevator->Hold();
 	} else {
@@ -46,12 +46,12 @@ bool AnalogElevatorMove::IsFinished()
 // Called once after isFinished returns true
 void AnalogElevatorMove::End()
 {
-
+	Robot::elevator->Hold();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void AnalogElevatorMove::Interrupted()
 {
-
+	Robot::elevator->Hold();
 }
