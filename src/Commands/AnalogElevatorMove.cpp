@@ -22,13 +22,14 @@ void AnalogElevatorMove::Execute()
 
 	if(Robot::elevator->BottomLimitReached())
 		Robot::elevator->ResetEncoders();
+
 	std::cout << "Doing something\n";
 	Joystick* flightstick = Robot::oi->GetFlightstick();
 	if (flightstick->GetRawButton(1)) {
 		float flightstick_Y = flightstick->GetY();
-		if(flightstick_Y > .15 && flightstick->GetRawButton(1) && !Robot::elevator->TopLimitReached())
+		if(flightstick_Y > .15 && flightstick->GetRawButton(1))
 			Robot::elevator->MoveUpWithSpeed(flightstick_Y * ELEVATOR_POWER);
-		else if(flightstick_Y < -.15 && flightstick->GetRawButton(1) && !Robot::elevator->BottomLimitReached())
+		else if(flightstick_Y < -.15 && flightstick->GetRawButton(1))
 			Robot::elevator->MoveDownWithSpeed(-flightstick_Y * ELEVATOR_POWER);
 		else
 			Robot::elevator->Hold();

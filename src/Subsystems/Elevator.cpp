@@ -49,20 +49,25 @@ void Elevator::ResetEncoders()
 
 bool Elevator::BottomLimitReached()
 {
+	SmartDashboard::PutBoolean("Bottom Limit Switch",!bottomLimitSwitch->Get());
 	// Switch reads at 0 when it is pressed so reverse the bool returned
 	return !bottomLimitSwitch->Get();
+
 }
 
 bool Elevator::TopLimitReached()
 {
+	SmartDashboard::PutBoolean("Top Limit Switch",!topLimitSwitch->Get());
 	// Switch reads 0 when it is pressed, so reverse the bool returned
 	return !topLimitSwitch->Get();
 }
 
+//Move the elevator up or down to reach a given level (based on encoder values)
 bool Elevator::GoToLevel(int _level)
 {
 
-
+	//Special case: level 0 is the ground level, so we want to go down until we hit our bottom limit.
+	//When the bottom limit is hit, the encoders are also reset so we can have a reference point for our higher levels.
 	if(_level == 0)
 	{
 		MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*.7);
@@ -70,21 +75,28 @@ bool Elevator::GoToLevel(int _level)
 	}
 	else
 	{
+		//Get our current encoder value, and our goal encoder value (specified in RobotMap)
 		int encoderCurrent = enc_1->Get();
 		int encoderGoal = LEVELS[_level];
+
+		//If we're below our goal and outside of our bilateral deadzone, then move up
 		if(encoderCurrent < encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 		{
 			SmartDashboard::PutString("Level", "less than");
+			//Implement a zone around the goal in which the elevator will move slower, so we get closer to our goal
 			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
 				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED*0.3);
 			} else {
 				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
 			}
+			//We haven't reached our level yet, so return false
 			return false;
 		}
+		//If we're above our goal and outside of our bilateral deadzone, then move down
 		else if (encoderCurrent > encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 		{
 			SmartDashboard::PutString("Level", "greater than");
+			//Implement a zone around the goal in which the elevator will move slower, so we get closer to our goal
 			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
 				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*0.3);
 			} else {
@@ -92,12 +104,14 @@ bool Elevator::GoToLevel(int _level)
 			}
 			return false;
 		}
+		//If we're within our deadzone, we reached the level so hold the elevator and return true
 		else if(abs(encoderCurrent - encoderGoal) < LEVEL_DEADZONE)
 		{
 			SmartDashboard::PutString("Level", "reached");
 			Hold();
 			return true;
 		}
+		//I dunno what's going on if this happens...
 		else
 		{
 			SmartDashboard::PutString("Level", "error");

@@ -20,14 +20,21 @@ void MoveToLevel::Execute()
 	SmartDashboard::PutNumber("Encoder 1",Robot::elevator->GetEncoder(Elevator::k1));
 	SmartDashboard::PutNumber("Encoder 2",Robot::elevator->GetEncoder(Elevator::k2));
 
+	//Reset our encoders if we hit the bottom limit, so we have a reference point for the higher levels
 	if(Robot::elevator->BottomLimitReached())
 		Robot::elevator->ResetEncoders();
 
+	//DESTINATION_LEVEL and DESTINATION_REACHED are set in the SetDestinationLevel command, which is triggered by a button press
+
+	//If we haven't got to our goal level, then move towards that level
 	if (!Robot::elevator->DESTINATION_REACHED) {
 		Robot::elevator->DESTINATION_REACHED = Robot::elevator->GoToLevel(Robot::elevator->DESTINATION_LEVEL);
 		std::cout << "Attempting to reach level " << Robot::elevator->DESTINATION_LEVEL << "\n";
+	} else {
+		Robot::elevator->Hold();
 	}
 
+	//Light the green or red LED depending if we've reached the destination level
 	if (Robot::elevator->DESTINATION_REACHED) {
 		Robot::oi->GetGamepad()->SetOutput(GREEN_LED,true);
 		Robot::oi->GetGamepad()->SetOutput(RED_LED,false);

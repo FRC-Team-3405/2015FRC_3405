@@ -59,11 +59,25 @@ OI::OI()
 	flightstick3 = new JoystickButton(flightstick, 3);
 	flightstick4 = new JoystickButton(flightstick, 4);
 	flightstick5 = new JoystickButton(flightstick, 5);
+	flightstick6 = new JoystickButton(flightstick, 6);
+	flightstick7 = new JoystickButton(flightstick, 7);
+	flightstick8 = new JoystickButton(flightstick, 8);
+	flightstick9 = new JoystickButton(flightstick, 9);
+	flightstick10 = new JoystickButton(flightstick, 10);
+	flightstick11 = new JoystickButton(flightstick, 11);
 
 	// Assign flightstick button actions here
 	flightstickTrigger->WhileHeld(new AnalogElevatorMove());
 	flightstick2->WhenPressed(new ClampArm());
 	flightstick3->WhenPressed(new OpenArm());
+
+	// Have flightstick buttons 6-11 go to levels 0-5
+	flightstick6->WhenPressed(new SetDestinationLevel(0));
+	flightstick7->WhenPressed(new SetDestinationLevel(1));
+	flightstick8->WhenPressed(new SetDestinationLevel(2));
+	flightstick9->WhenPressed(new SetDestinationLevel(3));
+	flightstick10->WhenPressed(new SetDestinationLevel(4));
+	flightstick11->WhenPressed(new SetDestinationLevel(5));
 
 }
 

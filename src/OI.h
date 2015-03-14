@@ -40,6 +40,12 @@ private:
 	JoystickButton* flightstick3;
 	JoystickButton* flightstick4;
 	JoystickButton* flightstick5;
+	JoystickButton* flightstick6;
+	JoystickButton* flightstick7;
+	JoystickButton* flightstick8;
+	JoystickButton* flightstick9;
+	JoystickButton* flightstick10;
+	JoystickButton* flightstick11;
 
 
 public:
