@@ -5,7 +5,7 @@ Pneumatics::Pneumatics() :
 		Subsystem("Pneumatics")
 {
 	compressor = new Compressor(0);
-	compressor->SetClosedLoopControl(true);
+	compressor->SetClosedLoopControl(false);
 }
 
 void Pneumatics::InitDefaultCommand()
@@ -20,7 +20,7 @@ void Pneumatics::InitDefaultCommand()
 
 void Pneumatics::StartCompressor()
 {
-	compressor->Start();
+	//compressor->Start();
 }
 
 void Pneumatics::StopCompressor()
@@ -30,7 +30,7 @@ void Pneumatics::StopCompressor()
 
 void Pneumatics::SetCompressorClosedLoopControl(bool on)
 {
-	compressor->SetClosedLoopControl(on);
+	//compressor->SetClosedLoopControl(on);
 }
 
 bool Pneumatics::PressureSwitchState()

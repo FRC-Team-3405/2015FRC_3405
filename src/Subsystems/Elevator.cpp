@@ -83,12 +83,14 @@ bool Elevator::GoToLevel(int _level)
 		if(encoderCurrent < encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 		{
 			SmartDashboard::PutString("Level", "less than");
+			MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
+
 			//Implement a zone around the goal in which the elevator will move slower, so we get closer to our goal
-			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
-				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED*0.3);
-			} else {
-				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
-			}
+//			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
+//				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED*0.3);
+//			} else {
+//				MoveUpWithSpeed(ELEVATOR_UPWARD_SPEED);
+//			}
 			//We haven't reached our level yet, so return false
 			return false;
 		}
@@ -96,12 +98,15 @@ bool Elevator::GoToLevel(int _level)
 		else if (encoderCurrent > encoderGoal && abs(encoderCurrent - encoderGoal) > LEVEL_DEADZONE)
 		{
 			SmartDashboard::PutString("Level", "greater than");
+			MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED);
+
 			//Implement a zone around the goal in which the elevator will move slower, so we get closer to our goal
-			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
-				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*0.3);
-			} else {
-				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED);
-			}
+//			if (abs(encoderCurrent - encoderGoal) < LEVEL_SLOWZONE) {
+//				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED*0.3);
+//			} else {
+//				MoveDownWithSpeed(ELEVATOR_DOWNWARD_SPEED);
+//			}
+			//We haven't reached our level yet, so return false
 			return false;
 		}
 		//If we're within our deadzone, we reached the level so hold the elevator and return true
@@ -142,25 +147,27 @@ void Elevator::MoveDown() {
 	wormgear->Set(-WORMGEAR_DOWN_SPEED);
 }
 
-void Elevator::MoveUpWithSpeed(float _speed)
+void Elevator::MoveDownWithSpeed(float _speed)
 {
 //	if (!TopLimitReached()) {
 //		leftTalon->Set(-_speed);
 //		rightTalon->Set(_speed);
 //		wormgear->Set(WORMGEAR_UP_SPEED);
 //	}
+	_speed = abs(_speed);
 	leftTalon->Set(-_speed);
 	rightTalon->Set(_speed);
 	wormgear->Set(WORMGEAR_UP_SPEED);
 }
 
-void Elevator::MoveDownWithSpeed(float _speed)
+void Elevator::MoveUpWithSpeed(float _speed)
 {
 //	if (!BottomLimitReached()) {
 //		leftTalon->Set(_speed);
 //		rightTalon->Set(-_speed);
 //		wormgear->Set(-_speed);
 //	}
+	_speed = abs(_speed);
 	leftTalon->Set(_speed);
 	rightTalon->Set(-_speed);
 	wormgear->Set(-WORMGEAR_DOWN_SPEED);

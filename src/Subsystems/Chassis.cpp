@@ -28,7 +28,7 @@ void Chassis::DriveWithJoystick(Joystick* stick)
 
 	float trigger = stick->GetRawAxis(XBOX_TRIGGERS);
 
-	float x = -1 * stick->GetX(GenericHID::kLeftHand);
+	float x = stick->GetX(GenericHID::kLeftHand);
 	float y = stick->GetY(GenericHID::kLeftHand);
 	float rotation = stick->GetRawAxis(XBOX_RIGHT_XAXIS);
 
