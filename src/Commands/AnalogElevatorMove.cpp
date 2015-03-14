@@ -28,9 +28,9 @@ void AnalogElevatorMove::Execute()
 	if (flightstick->GetRawButton(1)) {
 		float flightstick_Y = flightstick->GetY();
 		if(flightstick_Y > .15 && flightstick->GetRawButton(1))
-			Robot::elevator->MoveDownWithSpeed(flightstick_Y * ELEVATOR_POWER);
+			Robot::elevator->MoveUpWithSpeed(flightstick_Y * ELEVATOR_POWER);
 		else if(flightstick_Y < -.15 && flightstick->GetRawButton(1))
-			Robot::elevator->MoveUpWithSpeed(-flightstick_Y * ELEVATOR_POWER);
+			Robot::elevator->MoveDownWithSpeed(-flightstick_Y * ELEVATOR_POWER);
 		else
 			Robot::elevator->Hold();
 	} else {
